@@ -1,0 +1,387 @@
+* {
+   margin:0;
+   padding:0;
+   box-sizing: border-box;
+ }
+ /*共通*/
+/* html, body{*/
+/*   height: 100%;*/
+/*   margin:0 auto;*/
+/* }*/
+/* main{*/
+/*  min-height: 100%;*/
+/*  padding-top: 20px;*/
+/*  padding-bottom: 50px;*/
+/* }*/
+ 
+/*footer {*/
+/*  height: 50px;*/
+/*}*/
+
+/*footer p{*/
+/*    text-align:center;*/
+/*    line-height: 50px;*/
+/*}*/
+
+
+main {
+  min-height: calc(100vh);
+}
+footer {
+  height: 50px;
+  margin-top:50px;
+}
+
+footer p{
+ text-align: center;
+  line-height:50px;
+}
+ 
+ 
+ 
+/*トップページ*/
+.myplan_box{
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.introduction{
+ text-align:center;
+ margin-top:100px;
+}
+
+.login_button{
+  padding:10px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #007700;
+  margin-top:50px;
+  margin-bottom: 30px;
+}
+
+.login_button:hover {
+  color: #fff;
+  background-color: #228B22;
+} 
+
+.register_button{
+  padding:10px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #005FFF;
+}
+
+.register_button:hover {
+  color: #fff;
+  background-color: #2C7CFF;
+}
+
+.button_group{
+  text-align: center;
+}
+
+.myplan_box h1 {
+  font-size:35px;
+  margin-bottom:20px;
+}
+.myplan_box p{
+  font-size:20px;
+}
+ 
+ /*一覧ページ*/ 
+.index_box{
+  width: 1024px;
+  margin: 0 auto;
+  display: flex;
+}
+header{
+    margin-bottom:50px;
+}
+.sub_box{
+  width:300px;
+  padding:20px;
+  background-color:#DCC2FF;
+}
+.sub_box h2{
+  font-size:25px;
+  border-bottom: 2px solid #000;
+  margin-bottom:10px;
+}
+
+.sub_box form{
+  margin-top:50px;
+  padding-bottom:200px;
+}
+.sub_box table{
+  margin-top:20px;
+}
+
+.sub_box span{
+  color:#FFF;
+  background-color:	#CC3366;
+  padding:5px;
+  margin-right:10px;
+  
+}
+
+.sub_box button{
+  margin-top: 30px;
+  margin-left: 100px;
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #eb6100;
+}
+
+.sub_box button:hover {
+  color: #fff;
+  background-color: #f56500;
+}
+
+
+.main_box{
+  width:650px;
+  margin:0 auto;
+}
+
+.main_box h1{
+  font-size:30px;
+  text-align:center;
+  margin-bottom:50px;
+}
+
+.main_box table {
+  width:100%;
+  border-spacing: 0;
+}
+
+.main_box table th{
+  border-bottom: solid 2px #808080;
+  padding: 10px 0;
+}
+
+.main_box table td{
+  border-bottom: solid 2px #ddd;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.main_box table tr:nth-child(2n) {
+  background-color: #D9E5FF;
+}
+
+span{
+  margin-right:5px;
+  margin-left:5px;
+}
+.green_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #007700;
+}
+
+.green_button:hover {
+  color: #fff;
+  background-color: #228B22;
+}
+
+.red_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #CC3300;
+}
+
+.red_button:hover {
+  color: #fff;
+  background-color: #FF3300;
+}
+
+.blue_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #005FFF;
+  margin-left:5px;
+}
+
+.blue_button:hover {
+  color: #fff;
+  background-color: #2C7CFF;
+}
+.error_message{
+  color:#F00;
+}
+
+/*ふりわけ画面*/
+
+.devide_box{
+  width: 1024px;
+  margin:0 auto;
+}
+.devide_contents{
+  width:100%;
+  margin: 0 auto;
+  display: flex;
+}
+.devide_header{
+  text-align:center;
+}
+.devide_header h1{
+  font-size:30px;
+}
+
+.todo_box{
+  width:450px;
+  padding-bottom:50px;
+  background-color: #D9E5FF;
+  margin:0 auto;
+}
+
+.done_box{
+  width:450px;
+  padding-bottom:50px;
+  background-color: #FFDBC9;
+  margin:0 auto;
+  
+}
+
+.devide_box table {
+  width:90%;
+  margin:0 auto;
+  border-spacing: 0;
+
+}
+
+.devide_box  table th{
+  border-bottom: solid 2px #808080;
+  padding: 10px 0;
+}
+
+.devide_box  table td{
+  border-bottom: solid 1px #808080;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.devide_content_title{
+  font-size:25px;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+.devide_header{
+  margin-bottom:20px;
+}
+
+/*編集画面*/
+
+.edit_box{
+  width: 1024px;
+  margin: 0 auto;
+}
+
+.edit_box h1{
+  font-size:30px;
+  text-align:center;
+}
+
+.edit_contents{
+  text-align:center;
+  margin-top:30px;
+}
+
+.edit_table{
+  margin:0 auto;
+}
+.plan_edit label{
+  margin-right:10px;
+}
+.edit_button{
+  padding:10px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #007700;
+  margin: 0 auto;
+}
+
+.error_message_edit{
+  color:#F00;
+  text-align: center;
+}
+
+.edit_input{
+  margin:10px;
+}
+
+.edit_table button{
+  margin-top:50px;
+}
+.return{
+  margin-top:50px;
+  color:#00F;
+}
+
+
+/*show画面*/
+
+.show_box{
+  width: 1024px;
+  margin:0 auto;
+}
+.show_contents{
+  width:100%;
+  margin: 0 auto;
+  display: flex;
+}
+.show_header{
+  text-align:center;
+   margin-bottom:20px;
+}
+.show_header h1{
+  font-size:30px;
+}
+
+.todo_box{
+  width:450px;
+  padding-bottom:50px;
+  background-color: #D9E5FF;
+  margin:0 auto;
+}
+
+.done_box{
+  width:450px;
+  padding-bottom:50px;
+  background-color: #FFDBC9;
+  margin:0 auto;
+  
+}
+
+.show_box table {
+  width:90%;
+  margin:0 auto;
+  border-spacing: 0;
+
+}
+
+.show_box  table th{
+  border-bottom: solid 2px #808080;
+  padding: 10px 0;
+}
+
+.show_box  table td{
+  border-bottom: solid 1px #808080;
+  text-align: center;
+  padding: 10px 0;
+}
+
+.show_content_title{
+  font-size:25px;
+  text-align:center;
+  margin-top:10px;
+  margin-bottom:20px;
+}
+
+
+
