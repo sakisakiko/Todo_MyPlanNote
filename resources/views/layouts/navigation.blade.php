@@ -19,8 +19,8 @@
                     </a>
                 </div>
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                    <a href='/todos_devide'>
-                       <p>{{ __('ふりわけ') }}</p>
+                    <a href='/todos_about'>
+                       <p>{{ __('アバウト') }}</p>
                     </a>
                 </div>
                 </div>
@@ -80,8 +80,8 @@
             <x-responsive-nav-link :href="route('todos.index')" :active="request()->routeIs('index')">
                 {{ __('プランリスト') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('todos.devide')" :active="request()->routeIs('devide')">
-                {{ __('ふりわけ') }}
+            <x-responsive-nav-link :href="route('todos.about')" :active="request()->routeIs('devide')">
+                {{ __('アバウト') }}
             </x-responsive-nav-link>
         </div>
 

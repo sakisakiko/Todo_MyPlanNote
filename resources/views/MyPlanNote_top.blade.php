@@ -7,14 +7,17 @@
   完了ボタンを押すと終わったタスクを可視化することができます</p>
 </div>
 </div>
-<div class="button_group">
+
+<div class="top_contents">
 @auth
-  <button class="login_button"><a href='/todos'><strong>ログイン</strong></a></button></br>
-  <button class="register_button"><a href='/todos'><strong>新規登録</strong></a></button>
+<img src="/img/top_image.jpg" width="400" height="200">
 @endauth
 @guest
+<div class="button_group">
   <button class="login_button"><a href='/login'><strong>ログイン</strong></a></button></br>
   <button class="register_button"><a href='/register'><strong>新規登録</strong></a></button>
+</div>
+<img src="/img/top_image.jpg" width="400" height="200">
 @endguest
 </div>
 @endsection

@@ -186,6 +186,8 @@ return [
         
     'title' => 'プラン名',
     'due_date' => '予定日',
+    'list_name' => 'やること(小目標)',
+    'category_id' => 'カテゴリー',
     ],
 
 ];

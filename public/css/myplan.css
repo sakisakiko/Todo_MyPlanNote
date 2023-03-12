@@ -4,26 +4,6 @@
    box-sizing: border-box;
  }
  /*共通*/
-/* html, body{*/
-/*   height: 100%;*/
-/*   margin:0 auto;*/
-/* }*/
-/* main{*/
-/*  min-height: 100%;*/
-/*  padding-top: 20px;*/
-/*  padding-bottom: 50px;*/
-/* }*/
- 
-/*footer {*/
-/*  height: 50px;*/
-/*}*/
-
-/*footer p{*/
-/*    text-align:center;*/
-/*    line-height: 50px;*/
-/*}*/
-
-
 main {
   min-height: calc(100vh);
 }
@@ -34,9 +14,16 @@ footer {
 
 footer p{
  text-align: center;
-  line-height:50px;
+line-height:50px;
 }
  
+
+.return{
+  text-align:center;
+  color:#00F;
+  margin-top:50px;
+}
+
  
  
 /*トップページ*/
@@ -47,7 +34,7 @@ footer p{
 
 .introduction{
  text-align:center;
- margin-top:100px;
+ margin-top:30px;
 }
 
 .login_button{
@@ -55,8 +42,7 @@ footer p{
   border-radius:5px;
   color: #fff;
   background-color: #007700;
-  margin-top:50px;
-  margin-bottom: 30px;
+  margin:20px 10px 20px 10px;
 }
 
 .login_button:hover {
@@ -69,6 +55,7 @@ footer p{
   border-radius:5px;
   color: #fff;
   background-color: #005FFF;
+  margin:20px 10px 20px 10px;
 }
 
 .register_button:hover {
@@ -76,8 +63,17 @@ footer p{
   background-color: #2C7CFF;
 }
 
+.top_contents{
+  width:600px;
+  margin: 0 auto;
+}
 .button_group{
-  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.top_contents img{
+  margin:20px auto;
 }
 
 .myplan_box h1 {
@@ -87,6 +83,10 @@ footer p{
 .myplan_box p{
   font-size:20px;
 }
+
+
+
+
  
  /*一覧ページ*/ 
 .index_box{
@@ -101,41 +101,68 @@ header{
   width:300px;
   padding:20px;
   background-color:#DCC2FF;
+  padding-bottom:200px;
 }
 .sub_box h2{
   font-size:25px;
   border-bottom: 2px solid #000;
-  margin-bottom:10px;
+  text-align:center;
+  /*margin-bottom:10px;*/
 }
 
 .sub_box form{
   margin-top:50px;
-  padding-bottom:200px;
 }
 .sub_box table{
   margin-top:20px;
 }
 
 .sub_box span{
+  font-size:12px;
   color:#FFF;
   background-color:	#CC3366;
   padding:5px;
   margin-right:10px;
-  
 }
 
-.sub_box button{
+.create_box button{
   margin-top: 30px;
   margin-left: 100px;
+  margin-bottom: 50px;
   padding:5px;
   border-radius:5px;
   color: #fff;
   background-color: #eb6100;
 }
 
-.sub_box button:hover {
+.create_box button:hover {
   color: #fff;
   background-color: #f56500;
+}
+
+.create_box input{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.create_box select{
+  margin-top: 5px;
+}
+
+.create_box select{
+  width: 100%;
+}
+
+.search select{
+  width: 180px;
+}
+
+.search button{
+  margin-left: 10px;
+  padding:10px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #eb6100;
 }
 
 
@@ -210,72 +237,16 @@ span{
   color: #fff;
   background-color: #2C7CFF;
 }
+.error_box{
+  margin:15px;
+}
 .error_message{
   color:#F00;
 }
 
-/*ふりわけ画面*/
 
-.devide_box{
-  width: 1024px;
-  margin:0 auto;
-}
-.devide_contents{
-  width:100%;
-  margin: 0 auto;
-  display: flex;
-}
-.devide_header{
-  text-align:center;
-}
-.devide_header h1{
-  font-size:30px;
-}
 
-.todo_box{
-  width:450px;
-  padding-bottom:50px;
-  background-color: #D9E5FF;
-  margin:0 auto;
-}
-
-.done_box{
-  width:450px;
-  padding-bottom:50px;
-  background-color: #FFDBC9;
-  margin:0 auto;
-  
-}
-
-.devide_box table {
-  width:90%;
-  margin:0 auto;
-  border-spacing: 0;
-
-}
-
-.devide_box  table th{
-  border-bottom: solid 2px #808080;
-  padding: 10px 0;
-}
-
-.devide_box  table td{
-  border-bottom: solid 1px #808080;
-  text-align: center;
-  padding: 10px 0;
-}
-
-.devide_content_title{
-  font-size:25px;
-  text-align:center;
-  margin-top:10px;
-  margin-bottom:20px;
-}
-.devide_header{
-  margin-bottom:20px;
-}
-
-/*編集画面*/
+/*edit画面*/
 
 .edit_box{
   width: 1024px;
@@ -288,39 +259,81 @@ span{
 }
 
 .edit_contents{
-  text-align:center;
-  margin-top:30px;
+ width:100%;
+ display: flex;
+ margin:0 auto;
+ padding-top:30px;
 }
 
-.edit_table{
+.todo_edit{
+  width:450px;
+  padding-bottom:50px;
+  background-color: #D9E5FF;
+   border: 4px solid #2E8B57;
   margin:0 auto;
 }
-.plan_edit label{
-  margin-right:10px;
-}
-.edit_button{
-  padding:10px;
+
+.todo_edit button{
+  margin-top: 30px;
+  margin-left: 200px;
+  margin-bottom: 50px;
+  padding:5px;
   border-radius:5px;
   color: #fff;
   background-color: #007700;
-  margin: 0 auto;
 }
 
-.error_message_edit{
-  color:#F00;
-  text-align: center;
+.todo_edit button{
+ color: #fff;
+  background-color: #228B22;
 }
 
-.edit_input{
-  margin:10px;
+.todo_list_edit{
+  width:450px;
+  padding-bottom:50px;
+  background-color:#FAEBD7;
+  border: 4px dashed #2E8B57;
+  margin:0 auto;
 }
 
-.edit_table button{
-  margin-top:50px;
+.edit_contents h2{
+  font-size:25px;
+  text-align:center;
+  margin-top:20px;
+  margin-bottom:30px;
 }
-.return{
-  margin-top:50px;
-  color:#00F;
+
+.edit_contents h3{
+  font-size:20px;
+  text-align:center;
+  margin-top:20px;
+  margin-bottom:30px;
+}
+
+.edit_contents input{
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+
+.edit_contents select{
+ width:98%;
+ margin-top: 5px;
+}
+
+.edit_contents table {
+  /*width:90%;*/
+  margin:0 auto;
+  border-spacing: 0;
+  
+
+}
+.edit_contents label{
+  font-size:14px;
+  color:#FFF;
+  background-color:	#CC3366;
+  padding:5px;
+  margin-right:10px;
 }
 
 
@@ -330,17 +343,73 @@ span{
   width: 1024px;
   margin:0 auto;
 }
+
+.show_header{
+  margin:0 auto;
+}
+
+.show_header h1{
+  font-size:30px;
+  text-align:center;
+  background-color: #FFFF99;
+  padding:10px;
+  margin-right:30px;
+}
+
+.show_header_contents{
+  display: flex;
+  justify-content:center;
+  margin-top:20px;
+  align-items: center;
+}
+.due_date{
+  font-size: 18px;
+  margin-right: 30px;
+  text-align:center;
+}
+
+.complete_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #FF367F;
+  margin-left: 30px;
+}
+
+.complete_button:hover {
+  color: #fff;
+  background-color: #FF82B2;
+}
+
+.list_btn{
+  padding:10px;
+  border-radius:50%;
+  color: #fff;
+  background-color:#8EB8FF;
+  margin-left: 30px;
+}
+
+.list_btn:hover {
+  color: #fff;
+  background-color: #BAD3FF;
+}
+
+.show_sub_header{
+  display: flex;
+  justify-content:center;
+  margin-top:20px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.show_sub_header p{
+  font-size:18px;
+  margin-right: 30px;
+}
+
 .show_contents{
   width:100%;
   margin: 0 auto;
   display: flex;
-}
-.show_header{
-  text-align:center;
-   margin-bottom:20px;
-}
-.show_header h1{
-  font-size:30px;
 }
 
 .todo_box{
@@ -375,6 +444,7 @@ span{
   text-align: center;
   padding: 10px 0;
 }
+
 
 .show_content_title{
   font-size:25px;

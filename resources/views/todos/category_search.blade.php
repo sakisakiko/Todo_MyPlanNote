@@ -1,11 +1,11 @@
-<!--content.blade.php-->
 @extends('layouts.app')
 @section('content')
 <div class="container index_box">
   <div class="sub_box">@include('sub_box')</div><!--新規作成、絞り込みフォーム-->
   <div class="main_box">
   <h1><strong>マイプランリスト</strong></h1>
-    @include('main_box')
+  <p>{{ $todos->count() }}件見つかりました。</p>
+      @include('main_box')
   </div><!--main_box-->
 </div><!--main-->
 

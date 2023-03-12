@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('todos', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->string('title',30);
-            $table->string('category',20);
             $table->date('due_date');
             $table->boolean('status')->default(false);
             $table->timestamp('updated_at')->useCurrent()->nullable();

@@ -16,6 +16,12 @@ class Todo extends Model
           return $this->belongsTo('App\Models\User');
       }
       
+     //一つの 大目標（todo)は一つのカテゴリと紐づく
+      public function category()
+      {
+          return $this->belongsTo('App\Models\Category');
+      }
+      
     // ひとつの大目標(todo)はいくつかの小目標（todolists)を持つことができる
       public function todo_lists()
       {

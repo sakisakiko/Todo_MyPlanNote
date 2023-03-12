@@ -25,6 +25,10 @@ Route::get('/', function () {
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/todos_devide',[TodoController::class,'devide'])->name('todos.devide');
+Route::get('/todos_about',[TodoController::class,'about'])->name('todos.about');
+Route::get('/todos/category',[TodoController::class,'category_search'])->name('todos.category_search');
+
+
 Route::resource('todos', TodoController::class);
 // 小目標（todo_list）、大目標（todo)にネスト
 Route::resource('todo.todo_lists',TodoListController::class);

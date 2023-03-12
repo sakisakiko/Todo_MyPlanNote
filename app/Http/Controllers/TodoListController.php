@@ -38,6 +38,13 @@ class TodoListController extends Controller
      */
     public function store(Request $request)
     {
+      //バリデーション
+      // リスト名は必須項目
+      //リスト名は３０字以内
+        $validated = $request->validate([
+        'list_name' => 'required|max:30',
+        ]);
+        
       $todo_list=new TodoList();
       
       //データの割り当て
@@ -84,11 +91,20 @@ class TodoListController extends Controller
      */
     public function update(Request $request,Todo $todo, TodoList $todo_list)
     {
+      // リストの編集ボタンを押した時
       if($request->status===null){
+        
+      //バリデーション
+      // リスト名は必須項目
+      //リスト名は３０字以内
+        $validated = $request->validate([
+        'list_name' => 'required|max:30',
+        ]);
+        
       
         $todo_list->list_name=$request->input('list_name');
         $todo_list->save();
-        return redirect()->route('todos.show',$todo_list->todo_id);
+        return redirect()->route('todos.edit',$todo_list->todo_id);
       }else{
       
         //ステータスを未完了（デフォルト）→完了 false:未完了 true:完了

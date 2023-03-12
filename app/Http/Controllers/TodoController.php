@@ -2,10 +2,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;//日付取得
 
 use App\Models\Todo;//追加
 use App\Models\User;//追加
 use App\Models\TodoList;//追加
+use App\Models\Category;//追加
 
 class TodoController extends Controller
 {
@@ -16,21 +18,40 @@ class TodoController extends Controller
      */
     public function index(Request $request)
     {
-      // ログインユーザーの未完了状態のタスクのみを表示
+      //  ログインユーザーのタスクのみを表示
       // 予定日の早い順から表示
-      $todos=Todo::where('user_id',\Auth::user()->id)->where('status',false)->get()->sortBy('due_date');
+      $todos=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('due_date');
       
-       
-      // ※キーワード検索※
-      // $keyword = $request->input('keyword');
-      // if(!empty($keyword)){
-      //   $todos->where('title', 'LIKE', "%{$keyword}%")->get();
-      // }
-      // $todos=Todo::where('user_id',\Auth::user()->id)->where('status',false)->get()->sortBy('due_date');
+       //categoriesテーブルからgetLists();関数でcategory_nameとidを取得する
+      $category = new Category;
+      $categories = $category->getLists();
       
-       return view('todos.index',compact('todos'));
+      $category_id = $request->input('category_id'); //カテゴリの値
+      
+      // 現在の日時を取得
+      $now = Carbon::now();
+      return view('todos.index',compact('todos','categories','now'));
     }
     
+    
+    
+     public function category_search(Request $request)
+    {
+      $category_id= $request->input('category_id'); 
+      //categoriesテーブルからgetLists();関数でcategory_nameとidを取得する
+      $category = new Category;
+      $categories = $category->getLists();
+      
+      // $todos=Todo::query()->where('user_id',\Auth::user()->id)->where('category_id',$category_id)->get()->sortBy('due_date');
+      $todos=Todo::where('user_id',\Auth::user()->id)->where('category_id',$category_id)->get()->sortBy('due_date');
+      
+      // 現在の日時を取得
+      $now = Carbon::now();
+      return view('todos.category_search',compact('todos','categories','now','category_id'));
+    }
+    
+    
+  // あとで削除  
     public function devide()
     {
       // ログインユーザーのタスクのみを表示。予定日の早い順から表示
@@ -40,6 +61,15 @@ class TodoController extends Controller
        return view('todos.devide',compact('todos'),compact('dones'));
     }
   
+    // あとで削除  
+    public function about()
+    {
+      // ログインユーザーのタスクのみを表示。予定日の早い順から表示
+       $todos=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('due_date');
+      // ログインユーザーのタスクのみを表示。完了日（アップデート日）の早い順から表示
+       $dones=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('updated_at');
+       return view('todos.about',compact('todos'),compact('dones'));
+    }
     
 
     /**
@@ -62,9 +92,11 @@ class TodoController extends Controller
       //バリデーション
       // プラン名、予定日は必須項目
       // プラン名は３０字以内
+      // カテゴリは必須項目
         $validated = $request->validate([
         'title' => 'required|max:30',
         'due_date' => 'required',
+        'category_id' => 'required',
         ]);
 
           // 新規作成
@@ -75,7 +107,7 @@ class TodoController extends Controller
           $todo->title = $request->input('title');
           $todo->due_date = $request->input('due_date');
           $todo->user_id = $request->user()->id;
-          $todo->category= $request->input('category');
+          $todo->category_id= $request->input('category_id');
           
           // リクエストの確認
           // dd($request->all());
@@ -109,7 +141,13 @@ class TodoController extends Controller
     {
       $todo = Todo::find($id);
       $todo->todo_lists();
-      return view('todos.edit',compact('todo'));
+      
+      //categoriesテーブルからgetLists();関数でcategory_nameとidを取得する
+      $category = new Category;
+      $categories = $category->getLists();
+      
+      
+      return view('todos.edit',compact('todo','categories'));
     }
   
   
@@ -129,9 +167,11 @@ class TodoController extends Controller
        //バリデーション
       // プラン名、予定日は必須項目
       // プラン名は３０字以内
+      // カテゴリーは必須項目
         $validated = $request->validate([
         'title' => 'required|max:30',
         'due_date' => 'required',
+        'category_id' => 'required',
         ]);
 
       // 編集ボタンを押した時
@@ -142,10 +182,12 @@ class TodoController extends Controller
         // データの割り当て
         $todo->title = $request->input('title');
         $todo->due_date = $request->input('due_date');
-        $todo->category = $request->input('category');
+        $todo->category_id = $request->input('category_id');
         $todo->todo_lists->list_name=$request->input('list_name');
         $todo->save();
-        return redirect('/todos');
+        // return redirect('/todos');
+                // 詳細画面のリダイレクト
+        return redirect()->route('todos.show',$todo->id);
 
       }else{
         // 完了ボタンを押した時

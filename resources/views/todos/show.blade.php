@@ -1,20 +1,41 @@
-
 @extends('layouts.app')
 @section('content')
 
     <div class="container show_box">
+      
       <div class="show_header">
+        <div class="show_header_contents">
         <h1><strong>{{$todo->title}}</strong></h1>
-        <p>予定日:{{$todo->due_date}}</p>
+        <p class="due_date"><strong>予定日:{{$todo->due_date}}</strong></p>
         <a href="/todos/{{ $todo->id }}/edit"><button class="green_button"><span><strong>編集</strong></span></button></a>
-    <p>やることを入力しよう！</p>
-    <form action="/todo/{{$todo->id}}/todo_lists" method="post">
-    @csrf
-        <input type="text" placeholder="小目標を入力" name="list_name" />
-        <input value="{{$todo->id}}" type="hidden" name="todo_id"/>
-        <button type="submit"><strong>作成する</strong></button>
-    </form>
-      </div>
+        <form onsubmit="return UpdateStatus();" 
+        action="/todo/{{$todo->id}}" method="post">
+        @csrf
+        @method('PUT')
+        <input type="hidden" name="status" value="{{$todo->status}}">
+        <div class="complete_button"><button type="submit"><span><strong>✨プラン達成‼️✨</strong></span></button></div>
+        </form> 
+        </div>
+      </div> 
+      
+      <div class="show_sub_header">
+        <p>やることを入力しよう！</p>
+        <form action="/todo/{{$todo->id}}/todo_lists" method="post">
+        @csrf
+          <input type="text" placeholder="小目標を入力" name="list_name" />
+          <input value="{{$todo->id}}" type="hidden" name="todo_id"/>
+          <button type="submit"><strong class="list_btn">＋</strong></button>
+        </form>
+      </div> 
+      
+    <!--エラーメッセージ-->
+    <div class="error_box">
+    @foreach ($errors->all() as $error)
+      <li class="error_message">{{$error}}</li>
+    @endforeach
+    </div>
+    <!--エラーメッセージ-->
+      
       
       <div class="show_contents">
         <div class="todo_box">
@@ -23,7 +44,6 @@
             <thead>
               <tr>
                 <th>やること</th>
-                <th></th>
                 <th></th>
               </tr>
             </thead>
@@ -45,7 +65,7 @@
           </table>
         </div><!--todo_box-->
         <div class="done_box">
-          <h2 class="devide_content_title"><strong>⭐️終わったこと⭐️</strong></h2>
+          <h2 class="show_content_title"><strong>⭐️終わったこと⭐️</strong></h2>
           <table>
             <thead>
               <tr>
@@ -73,6 +93,7 @@
           </table>
         </div><!--done_box-->
       </div><!--devide_contents-->
+      <a href="/todos"><p class="return">戻る</p></a>
     </div><!--devide_box-->
     
     <!-- flatpickrスクリプト -->
@@ -82,6 +103,16 @@
     <script>
       function deleteTodoList() {
         if (confirm('本当に削除しますか？')) {
+          return true;
+        } else {
+          return false;
+      }
+      }
+    </script>
+    
+    <script>
+      function UpdateStatus() {
+        if (confirm('やることリストはすべて完了しましたか？')) {
           return true;
         } else {
           return false;
