@@ -17,7 +17,6 @@
 - 言語：PHP,CSS,JavaScript,MYSQL
 - フレームワーク：Laravel9
 - IDE：Cloud9
-- 
 
 ## 使用素材等外部リンク
 - 写真:
