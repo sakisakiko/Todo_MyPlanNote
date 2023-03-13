@@ -66,7 +66,6 @@
   
   </div> <!-- edit_contents -->  
   <a href="/todos/{{$todo->id}}"><p class="return">詳細画面へ戻る</p></a>
-  
   </div><!--edit_box-->
   
     <!-- flatpickrスクリプト -->

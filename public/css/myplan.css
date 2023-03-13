@@ -24,6 +24,51 @@ line-height:50px;
   margin-top:50px;
 }
 
+.error_box{
+  margin:15px;
+}
+.error_message{
+  color:#F00;
+}
+
+.green_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #007700;
+}
+
+.green_button:hover {
+  color: #fff;
+  background-color: #228B22;
+}
+
+.red_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #CC3300;
+}
+
+.red_button:hover {
+  color: #fff;
+  background-color: #FF3300;
+}
+
+.blue_button{
+  padding:5px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #005FFF;
+  margin-left:5px;
+}
+
+.blue_button:hover {
+  color: #fff;
+  background-color: #2C7CFF;
+}
+
+
  
  
 /*トップページ*/
@@ -84,6 +129,18 @@ line-height:50px;
   font-size:20px;
 }
 
+.about_button{
+  padding:10px;
+  border-radius:5px;
+  color: #fff;
+  background-color: #7B3CFF;
+  margin:20px 10px 20px 10px;
+}
+
+.about_button:hover {
+  color: #fff;
+  background-color: #B384FF;
+}
 
 
 
@@ -107,7 +164,6 @@ header{
   font-size:25px;
   border-bottom: 2px solid #000;
   text-align:center;
-  /*margin-bottom:10px;*/
 }
 
 .sub_box form{
@@ -201,48 +257,10 @@ span{
   margin-right:5px;
   margin-left:5px;
 }
-.green_button{
-  padding:5px;
-  border-radius:5px;
-  color: #fff;
-  background-color: #007700;
+.status_true{
+  color:#FF3399;
 }
 
-.green_button:hover {
-  color: #fff;
-  background-color: #228B22;
-}
-
-.red_button{
-  padding:5px;
-  border-radius:5px;
-  color: #fff;
-  background-color: #CC3300;
-}
-
-.red_button:hover {
-  color: #fff;
-  background-color: #FF3300;
-}
-
-.blue_button{
-  padding:5px;
-  border-radius:5px;
-  color: #fff;
-  background-color: #005FFF;
-  margin-left:5px;
-}
-
-.blue_button:hover {
-  color: #fff;
-  background-color: #2C7CFF;
-}
-.error_box{
-  margin:15px;
-}
-.error_message{
-  color:#F00;
-}
 
 
 
@@ -451,6 +469,24 @@ span{
   text-align:center;
   margin-top:10px;
   margin-bottom:20px;
+}
+
+.complete{
+  font-size: 20px;
+  color:#FF0066;
+}
+
+/*aboutページ*/
+.about_box{
+  width: 90%;
+  margin: 0 auto;
+}
+
+.about_box h1{
+  font-size: 35px;
+  text-align: center;
+  margin-bottom:30px;
+  
 }
 
 

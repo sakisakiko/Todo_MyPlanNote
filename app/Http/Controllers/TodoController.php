@@ -33,8 +33,7 @@ class TodoController extends Controller
       return view('todos.index',compact('todos','categories','now'));
     }
     
-    
-    
+  
      public function category_search(Request $request)
     {
       $category_id= $request->input('category_id'); 
@@ -51,24 +50,9 @@ class TodoController extends Controller
     }
     
     
-  // あとで削除  
-    public function devide()
-    {
-      // ログインユーザーのタスクのみを表示。予定日の早い順から表示
-       $todos=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('due_date');
-      // ログインユーザーのタスクのみを表示。完了日（アップデート日）の早い順から表示
-       $dones=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('updated_at');
-       return view('todos.devide',compact('todos'),compact('dones'));
-    }
-  
-    // あとで削除  
     public function about()
     {
-      // ログインユーザーのタスクのみを表示。予定日の早い順から表示
-       $todos=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('due_date');
-      // ログインユーザーのタスクのみを表示。完了日（アップデート日）の早い順から表示
-       $dones=Todo::where('user_id',\Auth::user()->id)->get()->sortBy('updated_at');
-       return view('todos.about',compact('todos'),compact('dones'));
+       return view('todos.about');
     }
     
 
@@ -150,7 +134,6 @@ class TodoController extends Controller
       return view('todos.edit',compact('todo','categories'));
     }
   
-  
 
     /**
      * Update the specified resource in storage.
@@ -185,8 +168,8 @@ class TodoController extends Controller
         $todo->category_id = $request->input('category_id');
         $todo->todo_lists->list_name=$request->input('list_name');
         $todo->save();
-        // return redirect('/todos');
-                // 詳細画面のリダイレクト
+        
+        // 詳細画面のリダイレクト
         return redirect()->route('todos.show',$todo->id);
 
       }else{
@@ -196,7 +179,7 @@ class TodoController extends Controller
         $todo->status = true;
          //データベースに保存
         $todo->save();
-        return redirect('/todos_devide');
+       return redirect()->route('todos.index');
       }
     }
 

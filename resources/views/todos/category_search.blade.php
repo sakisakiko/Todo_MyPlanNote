@@ -1,5 +1,6 @@
 @extends('layouts.app')
 @section('content')
+
 <div class="container index_box">
   <div class="sub_box">@include('sub_box')</div><!--新規作成、絞り込みフォーム-->
   <div class="main_box">
