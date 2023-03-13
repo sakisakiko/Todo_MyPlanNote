@@ -93,9 +93,6 @@ class TodoController extends Controller
           $todo->user_id = $request->user()->id;
           $todo->category_id= $request->input('category_id');
           
-          // リクエストの確認
-          // dd($request->all());
-          
           //保存
           $todo->save();
           //リダイレクト
@@ -129,7 +126,6 @@ class TodoController extends Controller
       //categoriesテーブルからgetLists();関数でcategory_nameとidを取得する
       $category = new Category;
       $categories = $category->getLists();
-      
       
       return view('todos.edit',compact('todo','categories'));
     }

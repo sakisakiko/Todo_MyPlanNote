@@ -51,9 +51,6 @@ class TodoListController extends Controller
       $todo_list->list_name =$request->input('list_name');
       $todo_list->todo_id=$request->input('todo_id');
       
-      // リクエストの確認
-      // dd($request->all());
-      
       // 保存
       $todo_list->save();
       // Todo詳細画面にリダイレクト
